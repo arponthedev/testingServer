@@ -1,37 +1,23 @@
-// server.mjs or index.mjs
+// index.js
 import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const port = 2000;
-
-// 1. Use CORS
 app.use(cors());
 
-// 2. Create a JSON list for 20 students
-const students = [];
+const students = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 1,
+  name: `Student ${i + 1}`,
+  department: `Department ${((i) % 5) + 1}`
+}));
 
-for (let i = 1; i <= 20; i++) {
-    students.push({
-        id: i,
-        name: `Student ${i}`,
-        department: `Department ${((i - 1) % 5) + 1}` // Cycles through 5 departments
-    });
-}
-
-const text = "Hello world iam here to server your team hellop"
-
-// 3. Default Route
 app.get('/', (req, res) => {
-    res.send(text);
+  res.send("Hello from Express on Vercel (index.js root)!");
 });
 
-// 4. Create an endpoint for student GET
 app.get('/students', (req, res) => {
-    res.json(students);
+  res.json(students);
 });
 
-// Start server
-app.listen(port, () => {
-    console.log(`Server Connected at http://localhost:${port}`);
-});
+// ✅ Export the app instead of app.listen()
+export default app;
