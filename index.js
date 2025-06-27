@@ -11,8 +11,10 @@ const students = Array.from({ length: 20 }, (_, i) => ({
   department: `Department ${((i) % 5) + 1}`
 }));
 
+const text = "helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo";
+
 app.get('/', (req, res) => {
-  res.send("Hello from Express on Vercel (index.js root)!");
+  res.send(text);
 });
 
 app.get('/students', (req, res) => {
