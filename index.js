@@ -11,7 +11,7 @@ const students = Array.from({ length: 20 }, (_, i) => ({
   department: `Department ${((i) % 5) + 1}`
 }));
 
-const text = "helloooooooooooooooooooooooooooooooooooooo";
+const text = "This is update text from local mechine";
 
 app.get('/', (req, res) => {
   res.send(text);
