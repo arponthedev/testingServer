@@ -13,7 +13,7 @@ const students = Array.from({ length: 20 }, (_, i) => ({
 
 const text = "This is update text from local mechine";
 
-app.get('/students', (req, res) => {
+app.get('/', (req, res) => {
   res.send(text);
 });
 
