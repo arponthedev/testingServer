@@ -20,7 +20,15 @@ const text = "This is update text from local mechine";
 app.get('/', (req, res) => {
   res.send(text);
 });
-
+// ✅ New route to return JSON file content
+app.get('/students-file', (req, res) => {
+  fs.readFile('./students.json', 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: "Failed to read JSON file" });
+    }
+    res.json(JSON.parse(data));
+  });
+});
 app.get('/students', (req, res) => {
   res.json(students);
 });
