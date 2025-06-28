@@ -2,7 +2,10 @@
 import express from 'express';
 import cors from 'cors';
 
-app.use(express.static('public'));
+import path from 'path';
+
+app.use(express.static(path.join(process.cwd(), 'public')));
+
 const app = express();
 app.use(cors());
 
