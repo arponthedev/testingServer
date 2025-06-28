@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 
+app.use(express.static('public'));
 const app = express();
 app.use(cors());
 
